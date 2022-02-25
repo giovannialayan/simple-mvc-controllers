@@ -1,7 +1,15 @@
-const controllers = require('./controllers');
+const controllers = require('./controllers'); //same as require('./controllers/index.js')
 
 const router = (app) => {
+    app.get('/page1', controllers.page1);
+    app.get('/page2', controllers.page2);
+    app.get('/', controllers.index);
 
+    app.get('/getName', controllers.getName);
+
+    app.get('/*', controllers.notFound);
+
+    app.post('/setName', controllers.setName);
 };
 
 module.exports = router;
